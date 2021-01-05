@@ -1,10 +1,15 @@
 #pragma once
 
+#include "hzpch.h"
+#ifdef HZ_PLATFORM_WINDOWS
+
 #include "Hazel/Renderer/RendererAPI.h"
+
+#include <d3d11.h>
 
 namespace Hazel {
 
-	class OpenGLRendererAPI : public RendererAPI
+	class DirectXRendererAPI : public RendererAPI
 	{
 	public:
 		virtual void Init() override;
@@ -14,6 +19,13 @@ namespace Hazel {
 		virtual void Clear() override;
 
 		virtual void DrawIndexed(const Ref<VertexArray>& vertexArray, uint32_t indexCount = 0) override;
-	};
 
+	private:
+		ID3D11DeviceContext* m_D3DContext{};
+ 		ID3D11Device* m_D3DDevice{};
+		IDXGISwapChain* m_SwapChain{};
+		ID3D11RenderTargetView* m_RenderTargetView{};
+	};
 }
+
+#endif

@@ -10,6 +10,7 @@
 #include "Hazel/Renderer/Renderer.h"
 
 #include "Platform/OpenGL/OpenGLContext.h"
+#include "Platform/DirectX/DirectXContext.h"
 
 namespace Hazel {
 	
