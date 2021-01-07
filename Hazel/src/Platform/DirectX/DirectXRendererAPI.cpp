@@ -84,6 +84,7 @@ namespace Hazel {
 		backBuffer->Release();
 
 		//glEnable(GL_BLEND);
+		//m_D3DDevice->SetRenderState(D3DRS_SRCBLEND, D3DBLEND_INVSRCALPHA);
 		//glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 		//glEnable(GL_DEPTH_TEST);

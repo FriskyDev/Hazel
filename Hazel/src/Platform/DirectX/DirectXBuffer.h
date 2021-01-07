@@ -1,6 +1,11 @@
 #pragma once
 
+#include "hzpch.h"
 #include "Hazel/Renderer/Buffer.h"
+
+#include <cstdint>
+
+#include <d3d11.h>
 
 namespace Hazel {
 
@@ -19,7 +24,7 @@ namespace Hazel {
 		virtual const BufferLayout& GetLayout() const override { return m_Layout; }
 		virtual void SetLayout(const BufferLayout& layout) override { m_Layout = layout; }
 	private:
-		uint32_t m_RendererID;
+		ID3D11Buffer* m_pVertexBuffer = nullptr;
 		BufferLayout m_Layout;
 	};
 
@@ -34,7 +39,7 @@ namespace Hazel {
 
 		virtual uint32_t GetCount() const { return m_Count; }
 	private:
-		uint32_t m_RendererID;
+		ID3D11Buffer* m_pVertexBuffer = nullptr;
 		uint32_t m_Count;
 	};
 

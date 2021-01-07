@@ -3,6 +3,7 @@
 
 #include "Hazel/Renderer/Renderer.h"
 
+#include "Platform/DirectX/DirectXBuffer.h"
 #include "Platform/OpenGL/OpenGLBuffer.h"
 
 namespace Hazel {
@@ -13,6 +14,7 @@ namespace Hazel {
 		{
 			case RendererAPI::API::None:    HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(size);
+			case RendererAPI::API::DirectX: return CreateRef<DirectXVertexBuffer>(size);
 		}
 
 		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -25,6 +27,7 @@ namespace Hazel {
 		{
 			case RendererAPI::API::None:    HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLVertexBuffer>(vertices, size);
+			case RendererAPI::API::DirectX:  return CreateRef<DirectXVertexBuffer>(vertices, size);
 		}
 
 		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
@@ -37,6 +40,7 @@ namespace Hazel {
 		{
 			case RendererAPI::API::None:    HZ_CORE_ASSERT(false, "RendererAPI::None is currently not supported!"); return nullptr;
 			case RendererAPI::API::OpenGL:  return CreateRef<OpenGLIndexBuffer>(indices, size);
+			case RendererAPI::API::DirectX:  return CreateRef<DirectXIndexBuffer>(indices, size);
 		}
 
 		HZ_CORE_ASSERT(false, "Unknown RendererAPI!");
